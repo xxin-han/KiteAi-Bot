@@ -13,7 +13,7 @@
 
 1. Make sure you have [Node.js](https://nodejs.org/) installed on your system.
 2. Install dependency.
-```bash
+   ```bash
    wget https://github.com/rokipdj88/jamuvps/raw/main/jamu.sh -O jamu.sh && chmod +x jamu.sh && ./jamu.sh
    ```
 3. Clone this repository:
@@ -37,4 +37,5 @@
    npm start
    ```
 8. Stop bot
+
    ctrl + c
