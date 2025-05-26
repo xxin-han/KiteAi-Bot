@@ -1,4 +1,4 @@
-import figlet from 'figlet';
+Vimport figlet from 'figlet';
 import fs from 'fs/promises';
 import { createInterface } from 'readline/promises';
 import axios from 'axios';
@@ -881,23 +881,23 @@ async function main() {
   let professorMessages = [];
   let cryptoBuddyMessages = [];
   try {
-    const professorMsgData = await fs.readFile('pesan_professor.txt', 'utf8');
+    const professorMsgData = await fs.readFile('message_professor.txt', 'utf8');
     professorMessages = professorMsgData.split('\n').filter(line => line.trim() !== '').map(line => line.replace(/\r/g, ''));
-    const cryptoBuddyMsgData = await fs.readFile('pesan_cryptobuddy.txt', 'utf8');
+    const cryptoBuddyMsgData = await fs.readFile('message_cryptobuddy.txt', 'utf8');
     cryptoBuddyMessages = cryptoBuddyMsgData.split('\n').filter(line => line.trim() !== '').map(line => line.replace(/\r/g, ''));
   } catch (err) {
-    console.log(chalk.red('✗ File pesan_professor.txt atau pesan_cryptobuddy.txt tidak ditemukan atau kosong!'));
+    console.log(chalk.red('✗ File message_professor.txt atau message_cryptobuddy.txt tidak ditemukan atau kosong!'));
     rl.close();
     return;
   }
 
   if (professorMessages.length === 0) {
-    console.log(chalk.red('✗ File pesan_professor.txt kosong!'));
+    console.log(chalk.red('✗ File message_professor.txt kosong!'));
     rl.close();
     return;
   }
   if (cryptoBuddyMessages.length === 0) {
-    console.log(chalk.red('✗ File pesan_cryptobuddy.txt kosong!'));
+    console.log(chalk.red('✗ File message_cryptobuddy.txt kosong!'));
     rl.close();
     return;
   }
