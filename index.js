@@ -1,4 +1,4 @@
-Vimport figlet from 'figlet';
+import figlet from 'figlet';
 import fs from 'fs/promises';
 import { createInterface } from 'readline/promises';
 import axios from 'axios';
