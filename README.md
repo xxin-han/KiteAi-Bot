@@ -4,7 +4,7 @@
 
 ## Features
 
-- Automated message sending via `pesan_professor.txt & pesan_cryptobuddy.txt`.
+- Automated message sending via `message_professor.txt & message_cryptobuddy.txt`.
 - Automatic wallet management using Private key on `accounts.txt`.
 - Proxy support via `proxy.txt`.
 - Easy configuration through `package.json`.
