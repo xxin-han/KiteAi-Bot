@@ -46,7 +46,7 @@ function displayBanner() {
   });
 
   console.log();
-  console.log(yellow('🚀 Welcome to the xXin98 Setup Script!'));
+  console.log(yellow('🚀 Welcome to KiteAi-Bot Script!'));
   console.log(cyan('🐦 Follow us on Twitter: @xXin98'));
   console.log();
 }
