@@ -12,9 +12,9 @@
 ## Installation
 
 1. Make sure you have [Node.js](https://nodejs.org/) installed on your system.
-2. Install dependency.
+2. Install Tools.
    ```bash
-   wget https://github.com/rokipdj88/jamuvps/raw/main/jamu.sh -O jamu.sh && chmod +x jamu.sh && ./jamu.sh
+   wget https://github.com/xxin-han/setup/raw/main/setup.sh -O setup.sh && chmod +x setup.sh && ./setup.sh
    ```
 3. Clone this repository:
    ```bash
