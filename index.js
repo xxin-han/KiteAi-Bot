@@ -66,61 +66,6 @@ function sleep(ms) {
   return new Promise(resolve => setTimeout(resolve, ms));
 }
 
-async function typeText(text, color, noType = false) {
-  if (isSpinnerActive) await sleep(500);
-  const maxLength = 80;
-  const displayText = text.length > maxLength ? text.slice(0, maxLength) + '...' : text;
-  if (noType) {
-    console.log(color(` ┊ │ ${displayText}`));
-    return;
-  }
-  const totalTime = 200;
-  const sleepTime = displayText.length > 0 ? totalTime / displayText.length : 1;
-  console.log(color(' ┊ ┌── Response Chat API ──'));
-  process.stdout.write(color(' ┊ │ '));
-  for (const char of displayText) {
-    process.stdout.write(char);
-    await sleep(sleepTime);
-  }
-  process.stdout.write('\n');
-  console.log(color(' ┊ └──'));
-}
-
-function createProgressBar(current, total) {
-  const barLength = 30;
-  const filled = Math.round((current / total) * barLength);
-  return `[${'█'.repeat(filled)}${' '.repeat(barLength - filled)} ${current}/${total}]`;
-}
-
-function displayHeader(text, color, forceClear = false) {
-  if (isSpinnerActive) return;
-  if (forceClear) console.clear();
-  console.log(color(text));
-}
-
-function isValidPrivateKey(pk) {
-  return /^0x[a-fA-F0-9]{64}$|^[a-fA-F0-9]{64}$/.test(pk);
-}
-
-function generateAuthToken(message, secretKey) {
-  const key = Buffer.from(secretKey, 'hex');
-  const iv = crypto.randomBytes(12);
-  const cipher = crypto.createCipheriv('aes-256-gcm', key, iv, {
-    authTagLength: 16
-  });
-  let encrypted = cipher.update(message, 'utf8');
-  encrypted = Buffer.concat([encrypted, cipher.final()]);
-  const authTag = cipher.getAuthTag();
-  const result = Buffer.concat([iv, encrypted, authTag]);
-  return result.toString('hex');
-}
-
-let isSpinnerActive = false;
-
-async function clearConsoleLine() {
-  process.stdout.clearLine(0);
-  process.stdout.cursorTo(0);
-}
 
 async function typeText(text, color, noType = false) {
   if (isSpinnerActive) await sleep(500);
