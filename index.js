@@ -18,13 +18,43 @@ function getTimestamp() {
 
 function displayBanner() {
   const width = process.stdout.columns || 80;
-  const banner = figlet.textSync('xXin98', { font: "ANSI Shadow", horizontalLayout: 'Speed' });
-  banner.split('\n').forEach(line => {
-    console.log(chalk.cyanBright(line.padStart(line.length + Math.floor((width - line.length) / 2))));
+
+  const lines = [
+    "                                                                                                         ",
+    "                    XXXXXXX       XXXXXXX  iiii                         999999999          888888888     ",
+    "                    X:::::X       X:::::X i::::i                      99:::::::::99      88:::::::::88   ",
+    "                    X:::::X       X:::::X  iiii                     99:::::::::::::99  88:::::::::::::88 ",
+    "                    X::::::X     X::::::X                          9::::::99999::::::98::::::88888::::::8",
+    "xxxxxxx      xxxxxxxXXX:::::X   X:::::XXXiiiiiii nnnn  nnnnnnnn    9:::::9     9:::::98:::::8     8:::::8",
+    " x:::::x    x:::::x    X:::::X X:::::X   i:::::i n:::nn::::::::nn  9:::::9     9:::::98:::::8     8:::::8",
+    "  x:::::x  x:::::x      X:::::X:::::X     i::::i n::::::::::::::nn  9:::::99999::::::9 8:::::88888:::::8 ",
+    "   x:::::xx:::::x        X:::::::::X      i::::i nn:::::::::::::::n  99::::::::::::::9  8:::::::::::::8  ",
+    "    x::::::::::x         X:::::::::X      i::::i   n:::::nnnn:::::n    99999::::::::9  8:::::88888:::::8 ",
+    "     x::::::::x         X:::::X:::::X     i::::i   n::::n    n::::n         9::::::9  8:::::8     8:::::8",
+    "     x::::::::x        X:::::X X:::::X    i::::i   n::::n    n::::n        9::::::9   8:::::8     8:::::8",
+    "    x::::::::::x    XXX:::::X   X:::::XXX i::::i   n::::n    n::::n       9::::::9    8:::::8     8:::::8",
+    "   x:::::xx:::::x   X::::::X     X::::::Xi::::::i  n::::n    n::::n      9::::::9     8::::::88888::::::8",
+    "  x:::::x  x:::::x  X:::::X       X:::::Xi::::::i  n::::n    n::::n     9::::::9       88:::::::::::::88 ",
+    " x:::::x    x:::::x X:::::X       X:::::Xi::::::i  n::::n    n::::n    9::::::9          88:::::::::88   ",
+    "xxxxxxx      xxxxxxxXXXXXXX       XXXXXXXiiiiiiii  nnnnnn    nnnnnn   99999999             888888888     ",
+  ];
+
+  const orange = chalk.hex('#FFA500');
+  const yellow = chalk.yellowBright;
+  const cyan = chalk.cyanBright;
+
+  console.clear();
+  lines.forEach(line => {
+    const pad = Math.floor((width - line.length) / 2);
+    console.log(orange(' '.repeat(pad) + line));
   });
-  console.log(chalk.cyanBright(' '.repeat((width - 50) / 2) + '=== by xXin98 ==='));
-  console.log(chalk.yellowBright(' '.repeat((width - 30) / 2) + '✪ KITE AI AUTO DAILY QUIZ & CHAT AI ✪\n'));
+
+  console.log();
+  console.log(yellow('🚀 Welcome to the xXin98 KiteAi-Bot Script!'.padStart((width + 38) / 2)));
+  console.log(cyan('🐦 Follow us on Twitter: @xXin98'.padStart((width + 32) / 2)));
+  console.log();
 }
+
 
 const rl = createInterface({
   input: process.stdin,
