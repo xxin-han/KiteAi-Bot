@@ -731,25 +731,6 @@ function selectAgent(agentNames, usedAgents) {
   return agentNames[agentNames.length - 1];
 }
 
-let lastCycleEndTime = null;
-
-function startCountdown(nextRunTime) {
-  const countdownInterval = setInterval(() => {
-    if (isSpinnerActive) return;
-    const now = moment();
-    const timeLeft = moment.duration(nextRunTime.diff(now));
-    if (timeLeft.asSeconds() <= 0) {
-      clearInterval(countdownInterval);
-      return;
-    }
-    clearConsoleLine();
-    const hours = Math.floor(timeLeft.asHours()).toString().padStart(2, '0');
-    const minutes = Math.floor(timeLeft.asMinutes() % 60).toString().padStart(2, '0');
-    const seconds = Math.floor(timeLeft.asSeconds() % 60).toString().padStart(2, '0');
-    process.stdout.write(chalk.cyan(` ┊ ⏳ Waiting for next cycle: ${hours}:${minutes}:${seconds}\r`));
-  }, 1000);
-}
-
 
 let lastCycleEndTime = null;
 
