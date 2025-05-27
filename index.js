@@ -17,8 +17,6 @@ function getTimestamp() {
 }
 
 function displayBanner() {
-  const width = process.stdout.columns || 80;
-
   const lines = [
     "                                                                                                         ",
     "                    XXXXXXX       XXXXXXX  iiii                         999999999          888888888     ",
@@ -43,15 +41,13 @@ function displayBanner() {
   const yellow = chalk.yellowBright;
   const cyan = chalk.cyanBright;
 
-  console.clear();
   lines.forEach(line => {
-    const pad = Math.floor((width - line.length) / 2);
-    console.log(orange(' '.repeat(pad) + line));
+    console.log(orange(line));
   });
 
   console.log();
-  console.log(yellow('🚀 Welcome to the xXin98 KiteAi-Bot Script!'.padStart((width + 38) / 2)));
-  console.log(cyan('🐦 Follow us on Twitter: @xXin98'.padStart((width + 32) / 2)));
+  console.log(yellow('🚀 Welcome to the xXin98 Setup Script!'));
+  console.log(cyan('🐦 Follow us on Twitter: @xXin98'));
   console.log();
 }
 
